@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title Generate QR Code
+  body
+    h1 QR Code Generator
+
+    form(action="/generate-qr-code" method="POST")
+      div
+        label(for="value") QR Value (Text or URL):
+        input(type="text" name="value" id="value" required)
+
+      div
+        label(for="width") Width (px):
+        input(type="number" name="width" id="width" required min="100")
+
+      div
+        label(for="height") Height (px):
+        input(type="number" name="height" id="height" required min="100")
+
+      div
+        button(type="submit") Generate
+
+    if qrUrl
+      h2 Result:
+      img(src=qrUrl alt="Generated QR Code")
+      p URL:
+        a(href=qrUrl target="_blank")= qrUrl

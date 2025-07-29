@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title Generate Image
+  body
+    h1 Generate Image
+
+    form(action="/generate-image" method="POST")
+      div
+        label(for="width") Width (px):
+        input(type="number" name="width" required)
+
+      div
+        label(for="height") Height (px):
+        input(type="number" name="height" required)
+
+      div
+        label(for="blur") Blur (0–10):
+        input(type="range" name="blur" min="0" max="10" step="0.1")
+
+      div
+        label(for="grayscale") Grayscale:
+        input(type="checkbox" name="grayscale")
+
+      div
+        button(type="submit") Generate
+
+    if imageUrl
+      h2 Result:
+      img(src=imageUrl alt="Generated image")
+      p URL: 
+        a(href=imageUrl target="_blank")= imageUrl
