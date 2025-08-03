@@ -50,7 +50,7 @@ router.post('/generate-qr-code', async (req, res) => {
   }
 
   try {
-    const encodedValue = encodeURIComponent(value); // replaces spaces with %20, etc.
+    const encodedValue = encodeURIComponent(value); 
 
     const url = `https://image-charts.com/chart?chs=${width}x${height}&cht=qr&chl=${encodedValue}&choe=UTF-8`;
 
